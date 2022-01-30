@@ -1,5 +1,8 @@
 package com.hornseym.prom_engine.main.java;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /* 
  * Copyright (C) 2022  Matthew Hornsey
 
@@ -15,6 +18,16 @@ public class Basket {
      */
 
     public Basket()
+    {
+        // ToDo Complete constructor
+    }
+
+    public Basket(Item[] items)
+    {
+        // ToDo Complete constructor
+    }
+
+    public Basket(List<Item> items)
     {
         // ToDo Complete constructor
     }
