@@ -30,7 +30,8 @@ public class TestPromotionA {
          * An empty basket shoud be unchanged by applying Promotion A
          */
         Basket basket = new Basket();
-        basket = PromotionA.apply(basket);
+        PromotionA promo = new PromotionA();
+        basket = promo.apply(basket);
         assertEquals("An empty basket should be unchanged by promotion A", 0, basket.getTotal());
     }
 
@@ -42,7 +43,8 @@ public class TestPromotionA {
          */
         Item[] items = {ItemBuilder.getA()};
         Basket basket = new Basket(items);
-        basket = PromotionA.apply(basket);
+        PromotionA promo = new PromotionA();
+        basket = promo.apply(basket);
         assertEquals("A basket with just one A should be unchanged by promotion A", 50, basket.getTotal());
     }
 
@@ -54,7 +56,8 @@ public class TestPromotionA {
          */
         Item[] items = {ItemBuilder.getA(), ItemBuilder.getA()};
         Basket basket = new Basket(items);
-        basket = PromotionA.apply(basket);
+        PromotionA promo = new PromotionA();
+        basket = promo.apply(basket);
         assertEquals("A basket with just two A should be unchanged by promotion A", 100, basket.getTotal());
     }
 
@@ -66,7 +69,8 @@ public class TestPromotionA {
          */
         Item[] items = {ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getB()};
         Basket basket = new Basket(items);
-        basket = PromotionA.apply(basket);
+        PromotionA promo = new PromotionA();
+        basket = promo.apply(basket);
         assertEquals("A basket with just two A and others should be unchanged by promotion A", 130, basket.getTotal());
     }
 
@@ -78,7 +82,8 @@ public class TestPromotionA {
          */
         Item[] items = {ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA()};
         Basket basket = new Basket(items);
-        basket = PromotionA.apply(basket);
+        PromotionA promo = new PromotionA();
+        basket = promo.apply(basket);
         assertEquals("A basket with three A should be undated by promotion A", 130, basket.getTotal());
     }
 
@@ -90,8 +95,9 @@ public class TestPromotionA {
          */
         Item[] items = {ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA()};
         Basket basket = new Basket(items);
+        PromotionA promo = new PromotionA();
         // Apply once more than needed to make sure it's applied the right number of times
-        basket = PromotionA.apply(PromotionA.apply(basket));
+        basket = promo.apply(promo.apply(basket));
         assertEquals("A basket with four As should be undated by promotion A", 180, basket.getTotal());
     }
 
@@ -104,8 +110,9 @@ public class TestPromotionA {
         Item[] items = {ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA(),
                         ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA()};
         Basket basket = new Basket(items);
+        PromotionA promo = new PromotionA();
         // Apply once more than needed to make sure it's applied the right number of times
-        basket = PromotionA.apply(PromotionA.apply(PromotionA.apply(basket)));
+        basket = promo.apply(promo.apply(promo.apply(basket)));
         assertEquals("A basket with four As should be undated by promotion A", 310, basket.getTotal());
     }
     

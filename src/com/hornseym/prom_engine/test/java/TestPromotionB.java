@@ -30,7 +30,8 @@ public class TestPromotionB {
          * An empty basket shoud be unchanged by applying Promotion B
          */
         Basket basket = new Basket();
-        basket = PromotionB.apply(basket);
+        PromotionB promo = new PromotionB();
+        basket = promo.apply(basket);
         assertEquals("An empty basket should be unchanged by promotion B", 0, basket.getTotal());
     }
 
@@ -42,7 +43,8 @@ public class TestPromotionB {
          */
         Item[] items = {ItemBuilder.getB()};
         Basket basket = new Basket(items);
-        basket = PromotionB.apply(basket);
+        PromotionB promo = new PromotionB();
+        basket = promo.apply(basket);
         assertEquals("A basket with just one B should be unchanged by promotion B", 30, basket.getTotal());
     }
 
@@ -54,7 +56,8 @@ public class TestPromotionB {
          */
         Item[] items = {ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getB()};
         Basket basket = new Basket(items);
-        basket = PromotionB.apply(basket);
+        PromotionB promo = new PromotionB();
+        basket = promo.apply(basket);
         assertEquals("A basket with just one B and others should be unchanged by promotion B", 130, basket.getTotal());
     }
 
@@ -66,7 +69,8 @@ public class TestPromotionB {
          */
         Item[] items = {ItemBuilder.getB(), ItemBuilder.getB()};
         Basket basket = new Basket(items);
-        basket = PromotionB.apply(basket);
+        PromotionB promo = new PromotionB();
+        basket = promo.apply(basket);
         assertEquals("A basket with two B should be updated by promotion B", 45, basket.getTotal());
     }
 
@@ -78,8 +82,9 @@ public class TestPromotionB {
          */
         Item[] items = {ItemBuilder.getB(), ItemBuilder.getB(), ItemBuilder.getB()};
         Basket basket = new Basket(items);
+        PromotionB promo = new PromotionB();
         // Apply once more than needed to make sure it's not updted more that it should be.
-        basket = PromotionB.apply(PromotionB.apply(basket));
+        basket = promo.apply(promo.apply(basket));
         assertEquals("A basket with three B should be updated by promotion B", 75, basket.getTotal());
     }
 
@@ -92,8 +97,9 @@ public class TestPromotionB {
         Item[] items = {ItemBuilder.getB(), ItemBuilder.getA(), ItemBuilder.getB(), ItemBuilder.getC()
                         , ItemBuilder.getB(), ItemBuilder.getB(), ItemBuilder.getB()};
         Basket basket = new Basket(items);
+        PromotionB promo = new PromotionB();
         // Apply once more than needed to make sure it's not updted more that it should be.
-        basket = PromotionB.apply(PromotionB.apply(PromotionB.apply(basket)));
+        basket = promo.apply(promo.apply(promo.apply(basket)));
         assertEquals("A basket with three B should be updated by promotion B", 190, basket.getTotal());
     }
 }

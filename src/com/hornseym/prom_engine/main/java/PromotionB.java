@@ -14,15 +14,14 @@ import javax.naming.OperationNotSupportedException;
  * is available at the root of the project or at <https://www.gnu.org/licenses/>.
  */
 
-public class PromotionB {
+public class PromotionB extends Promotion{
     /**
      * Promotion A is: 2 of B's for 45
      */
 
-    private PromotionB() throws OperationNotSupportedException
+    public PromotionB()
     {
-        // Class should be not initialisable
-        throw new OperationNotSupportedException();
+        // Do nothing
 
     }
 
@@ -30,31 +29,11 @@ public class PromotionB {
      * Apply's Promotion B to the basket: 2 of B's for 45. N.B. this method creates a new 
      * basket, it does not modify the one passed in.
      * @param basket
-     * @return
+     * @return The basket with the promotion applied once (if appropriate)
      */
-    public static Basket apply(Basket basket)
+    public Basket apply(Basket basket)
     {
-        // By default return the orriginal basket
-        Basket ret = basket;
-        List<Item> items = basket.getItems();
-
-        // Get the Bs...
-        List<Item> twoBs = items.stream().filter((item) -> item.getName() == "B").limit(2).collect(Collectors.toList());
-
-        // ...And if there were 2, apply the promotion
-        if(twoBs.size() == 2)
-        {
-            // Get the items without the As the promotion is being applied to
-            items = items.stream().filter((item) -> !twoBs.contains(item)).collect(Collectors.toList());
-            // Create the promotion item and add it to the remaining items, then create a new basket.
-            Item promo = new Item("Two Bs @ 45", 45);
-            items.add(promo);
-            ret = new Basket(items);
-        }
-
-        // Return old or new basket
-        return ret;
-
+        return this.applyNItems(basket, "B", 2, new Item("2 Bs for 45", 45));
     }
     
 }
