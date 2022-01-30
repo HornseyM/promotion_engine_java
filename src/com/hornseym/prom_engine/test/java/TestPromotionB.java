@@ -62,11 +62,38 @@ public class TestPromotionB {
     public void testBasketWithTwoBsIsChanged()
     {
         /**
-         * A basket two Bs shoud be changed by applying Promotion b
+         * A basket two Bs shoud be changed by applying Promotion B
          */
         Item[] items = {ItemBuilder.getB(), ItemBuilder.getB()};
         Basket basket = new Basket(items);
         basket = PromotionB.apply(basket);
-        assertEquals("A basket with two B should be undated by promotion B", 45, basket.getTotal());
+        assertEquals("A basket with two B should be updated by promotion B", 45, basket.getTotal());
+    }
+
+    @Test
+    public void testBasketWithThreeBsIsChanged()
+    {
+        /**
+         * A basket three Bs shoud be changed by applying Promotion B
+         */
+        Item[] items = {ItemBuilder.getB(), ItemBuilder.getB(), ItemBuilder.getB()};
+        Basket basket = new Basket(items);
+        // Apply once more than needed to make sure it's not updted more that it should be.
+        basket = PromotionB.apply(PromotionB.apply(basket));
+        assertEquals("A basket with three B should be updated by promotion B", 75, basket.getTotal());
+    }
+
+    @Test
+    public void testBasketWithFiveBsAnOthersIsChanged()
+    {
+        /**
+         * A basket five Bs and others shoud be changed by applying Promotion B
+         */
+        Item[] items = {ItemBuilder.getB(), ItemBuilder.getA(), ItemBuilder.getB(), ItemBuilder.getC()
+                        , ItemBuilder.getB(), ItemBuilder.getB(), ItemBuilder.getB()};
+        Basket basket = new Basket(items);
+        // Apply once more than needed to make sure it's not updted more that it should be.
+        basket = PromotionB.apply(PromotionB.apply(PromotionB.apply(basket)));
+        assertEquals("A basket with three B should be updated by promotion B", 190, basket.getTotal());
     }
 }
