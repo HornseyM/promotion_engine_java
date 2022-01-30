@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import com.hornseym.prom_engine.main.java.Basket;
 import com.hornseym.prom_engine.main.java.Item;
 import com.hornseym.prom_engine.main.java.ItemBuilder;
+import com.hornseym.prom_engine.main.java.PromotionA;
+import com.hornseym.prom_engine.main.java.PromotionB;
 
 import org.junit.Ignore;
 
@@ -69,11 +71,10 @@ public class TestAcceptence
          */
         Item[] items = {ItemBuilder.getA(), ItemBuilder.getB(), ItemBuilder.getC()};
         Basket basket = new Basket(items);
-        assertEquals("Total in Scenario A should be 100",100, basket.getTotal());
+        assertEquals("Total in Scenario A should be 100", 100, basket.getTotal());
 
     }
 
-    @Ignore("Functionality not yet implented.")
     @Test
     public void testScenarioB()
     {
@@ -83,7 +84,16 @@ public class TestAcceptence
          * Scenario B
          * (5 * A) + (5 * B) + (1 * C) = 370
          */
-        
+        Item[] items = {ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA(), 
+                        ItemBuilder.getA(),
+                        ItemBuilder.getB(), ItemBuilder.getB(), ItemBuilder.getB(), ItemBuilder.getB(), 
+                        ItemBuilder.getB(),
+                        ItemBuilder.getC()};
+        Basket basket = new Basket(items);
+        PromotionA promA = new PromotionA();
+        PromotionB promB = new PromotionB();
+        basket = promB.apply(promB.apply(promA.apply(basket)));
+        assertEquals("Total in Scenario B should be 370", 370, basket.getTotal());
     }
 
     @Ignore("Functionality not yet implented.")
