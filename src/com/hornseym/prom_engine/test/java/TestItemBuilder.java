@@ -42,5 +42,65 @@ public class TestItemBuilder {
           Item item = ItemBuilder.getA();
           assertEquals("Item A should be built with the price 50.", 50, item.getPrice());
      }
+
+     @Test
+     public void testItemBuilderReturnsBWithCorrectName()
+     {
+         /**
+          * This method tests that the item builder can build an B with the correct name
+          */
+          Item item = ItemBuilder.getB();
+          assertEquals("Item B should be built with the name 'B'.", "B", item.getName());
+     }
+
+     @Test
+     public void testItemBuilderReturnsBWithCorrectPrice()
+     {
+         /**
+          * This method tests that the item builder can build an B with the correct Price
+          */
+          Item item = ItemBuilder.getB();
+          assertEquals("Item B should be built with the price 30.", 30, item.getPrice());
+     }
+
+     @Test
+     public void testItemBuilderReturnsCWithCorrectName()
+     {
+         /**
+          * This method tests that the item builder can build an C with the correct name
+          */
+          Item item = ItemBuilder.getC();
+          assertEquals("Item C should be built with the name 'C'.", "C", item.getName());
+     }
+
+     @Test
+     public void testItemBuilderReturnsCWithCorrectPrice()
+     {
+         /**
+          * This method tests that the item builder can build an C with the correct Price
+          */
+          Item item = ItemBuilder.getC();
+          assertEquals("Item C should be built with the price 20.", 20, item.getPrice());
+     }
+
+     @Test
+     public void testItemBuilderReturnsDWithCorrectName()
+     {
+         /**
+          * This method tests that the item builder can build an D with the correct name
+          */
+          Item item = ItemBuilder.getD();
+          assertEquals("Item D should be built with the name 'D'.", "D", item.getName());
+     }
+
+     @Test
+     public void testItemBuilderReturnsDWithCorrectPrice()
+     {
+         /**
+          * This method tests that the item builder can build an D with the correct Price
+          */
+          Item item = ItemBuilder.getD();
+          assertEquals("Item D should be built with the price 15.", 15, item.getPrice());
+     }
     
 }
