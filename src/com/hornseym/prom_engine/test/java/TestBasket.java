@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import com.hornseym.prom_engine.main.java.Basket;
 import com.hornseym.prom_engine.main.java.Item;
+import com.hornseym.prom_engine.main.java.ItemBuilder;
 
 /* 
  * Copyright (C) 2022  Matthew Hornsey
@@ -61,7 +62,7 @@ public class TestBasket {
         /**
          * Test that the Basket class can be initialise with one item in it as an array
          */
-        Item[] items = {new Item("A", 50)};
+        Item[] items = {ItemBuilder.getA()};
         Basket basket = new Basket(items);
         assertNotNull(basket);
     }
@@ -72,7 +73,7 @@ public class TestBasket {
         /**
          * Test that the Basket class can be initialise with one item in it as an Array List
          */
-        Item[] itemsA = {new Item("A", 50)};
+        Item[] itemsA = {ItemBuilder.getA()};
         ArrayList<Item> items = new ArrayList<Item>(Arrays.asList(itemsA));
         Basket basket = new Basket(items);
         assertNotNull(basket);
@@ -84,7 +85,7 @@ public class TestBasket {
         /**
          * Test that the Basket class can be initialise withmultiple items in it as an array
          */
-        Item[] items = {new Item("A", 50), new Item("A", 50), new Item("A", 50)};
+        Item[] items = {ItemBuilder.getA(), ItemBuilder.getB(), ItemBuilder.getC()};
         Basket basket = new Basket(items);
         assertNotNull(basket);
     }
@@ -95,7 +96,7 @@ public class TestBasket {
         /**
          * Test that the Basket class can be initialise withmultiple items in it as an Array List
          */
-        Item[] itemsA = {new Item("A", 50), new Item("A", 50), new Item("A", 50)};
+        Item[] itemsA = {ItemBuilder.getA(), ItemBuilder.getB(), ItemBuilder.getC()};
         ArrayList<Item> items = new ArrayList<Item>(Arrays.asList(itemsA));
         Basket basket = new Basket(items);
         assertNotNull(basket);
