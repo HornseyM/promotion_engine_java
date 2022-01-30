@@ -1,8 +1,9 @@
 package com.hornseym.prom_engine.test.java;
 
 import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
+
+import com.hornseym.prom_engine.main.java.Item;
 
 public class TestItem {
     /**
