@@ -5,8 +5,32 @@ public class Item {
      * This class contains a item that can be in a basket.
      */
 
-     public Item()
+    private final String name;
+    private final int price;
+
+     public Item(String name, int price)
      {
-         // ToDo Do contructor
+         this.name = name;
+         this.price = price;
+     }
+
+     // Getters
+
+     /**
+      * Returns the name of the item
+      * @return Name of the item.
+      */
+     public String getName()
+     {
+         return name;
+     }
+
+     /**
+      * Returns the price of the item
+      * @return Price of the item.
+      */
+     public int getPrice()
+     {
+         return price;
      }
 }
