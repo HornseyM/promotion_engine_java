@@ -3,6 +3,7 @@ package com.hornseym.prom_engine.test;
 import static org.junit.Assert.assertEquals;
 
 import com.hornseym.prom_engine.main.java.Basket;
+import com.hornseym.prom_engine.main.java.PromotionA;
 
 import org.junit.Test;
 
