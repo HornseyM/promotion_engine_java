@@ -1,5 +1,8 @@
 package com.hornseym.prom_engine.main.java;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.naming.OperationNotSupportedException;
 
 /* 
@@ -33,6 +36,21 @@ public class PromotionB {
     {
         // By default return the orriginal basket
         Basket ret = basket;
+        List<Item> items = basket.getItems();
+
+        // Get the Bs...
+        List<Item> twoBs = items.stream().filter((item) -> item.getName() == "B").limit(2).collect(Collectors.toList());
+
+        // ...And if there were 2, apply the promotion
+        if(twoBs.size() == 2)
+        {
+            // Get the items without the As the promotion is being applied to
+            items = items.stream().filter((item) -> !twoBs.contains(item)).collect(Collectors.toList());
+            // Create the promotion item and add it to the remaining items, then create a new basket.
+            Item promo = new Item("Two Bs @ 45", 45);
+            items.add(promo);
+            ret = new Basket(items);
+        }
 
         // Return old or new basket
         return ret;
