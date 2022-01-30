@@ -1,5 +1,11 @@
 package com.hornseym.prom_engine.test.java;
 
+import static org.junit.Assert.assertEquals;
+
+import com.hornseym.prom_engine.main.java.Basket;
+import com.hornseym.prom_engine.main.java.Item;
+import com.hornseym.prom_engine.main.java.ItemBuilder;
+
 import org.junit.Ignore;
 
 import org.junit.Test;
@@ -52,7 +58,6 @@ import org.junit.Test;
 public class TestAcceptence
 {
 
-    @Ignore("Functionality not yet implented.")
     @Test
     public void testScenarioA()
     {
@@ -62,6 +67,9 @@ public class TestAcceptence
          * Scenario A
          * (1 * A) + (1 * B) + (1 * C) = 100
          */
+        Item[] items = {ItemBuilder.getA(), ItemBuilder.getB(), ItemBuilder.getC()};
+        Basket basket = new Basket(items);
+        assertEquals("Total in Scenario A should be 100",100, basket.getTotal());
 
     }
 
