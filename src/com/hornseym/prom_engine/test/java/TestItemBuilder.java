@@ -1,7 +1,6 @@
 package com.hornseym.prom_engine.test.java;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 
 import com.hornseym.prom_engine.main.java.Item;
 import com.hornseym.prom_engine.main.java.ItemBuilder;
