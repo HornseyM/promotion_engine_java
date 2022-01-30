@@ -43,6 +43,17 @@ public class Basket {
         this.items = new ArrayList<Item>(items);
     }
 
+    // Getter/s
+
+    /**
+     * Gets the items in the basket
+     * @return The items in the basket
+     */
+    public List<Item> getItems()
+    {
+        return items;
+    }
+
     /**
      * Returns the total value of all the items in the basket.
      * @return The total of the basket

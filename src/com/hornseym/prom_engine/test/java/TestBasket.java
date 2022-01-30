@@ -2,6 +2,7 @@ package com.hornseym.prom_engine.test.java;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -142,7 +143,7 @@ public class TestBasket {
          * An empty basket should return no items.
          */
         Basket basket = new Basket();
-        assertTrue("", basket.getItems().isEmpty());
+        assertTrue("If the basket is empty there should be no items", basket.getItems().isEmpty());
     }
     
     @Test
