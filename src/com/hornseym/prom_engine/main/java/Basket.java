@@ -1,6 +1,7 @@
 package com.hornseym.prom_engine.main.java;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /* 
@@ -13,23 +14,42 @@ import java.util.List;
  */
 
 public class Basket {
-    /**
-     * This class can store items as a basket and get the total of all the items in the basket.
-     */
 
+    private final List<Item> items;
+
+    /**
+     * Initialise an empty basket
+     */
     public Basket()
     {
-        // ToDo Complete constructor
+        items = new ArrayList<Item>();
     }
 
+    /**
+     * Initialise a basket with the items
+     * @param items Items to put int eh basket
+     */
     public Basket(Item[] items)
     {
-        // ToDo Complete constructor
+        this.items = new ArrayList<Item>(Arrays.asList(items));
     }
 
+    /**
+     * Initialise a basket with the items
+     * @param items Items to put int eh basket
+     */
     public Basket(List<Item> items)
     {
-        // ToDo Complete constructor
+        this.items = new ArrayList<Item>(items);
+    }
+
+    /**
+     * Returns the total value of all the items in the basket.
+     * @return The total of the basket
+     */
+    public int getTotal()
+    {
+        return items.stream().mapToInt(item -> item.getPrice()).sum();
     }
     
 }
