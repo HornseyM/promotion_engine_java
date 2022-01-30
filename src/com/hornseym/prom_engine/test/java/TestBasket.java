@@ -1,5 +1,6 @@
 package com.hornseym.prom_engine.test.java;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
@@ -100,6 +101,38 @@ public class TestBasket {
         ArrayList<Item> items = new ArrayList<Item>(Arrays.asList(itemsA));
         Basket basket = new Basket(items);
         assertNotNull(basket);
+    }
+
+    @Test
+    public void testTotalIsZeroWhenBasketEmpty()
+    {
+        /**
+         * If the basket is empty, the total should be 0.
+         */
+        Basket basket = new Basket();
+        assertEquals("Empty basket should have 0 total", 0, basket.getTotal());
+    }
+
+    @Test
+    public void testTotalIsCorrectWithOneItem()
+    {
+        /**
+         * If the basket has one item the total should be the price of the item.
+         */
+        Item[] items = {ItemBuilder.getA()};
+        Basket basket = new Basket(items);
+        assertEquals("Empty basket should have total for one item", 50, basket.getTotal());
+    }
+
+    @Test
+    public void testTotalIsCorrectWithmultipleItems()
+    {
+        /**
+         * If the basket has multiple items the total should be the price of all the items.
+         */
+        Item[] items = {ItemBuilder.getA(), ItemBuilder.getB(), ItemBuilder.getC()};
+        Basket basket = new Basket(items);
+        assertEquals("Empty basket should have total for multiple items", 100, basket.getTotal());
     }
     
 }
