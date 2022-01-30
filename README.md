@@ -13,6 +13,10 @@ It is then split as follows:
 - `main`: the folder to maintain source code for implementing the project to be held;
 - `lib`: the folder for the unit tests of the project to be held;
 
+## Dependencies
+
+This project can be imported into an IDE as it is. The only dependency to meet is Java 8 (minimum) and JUnit5.
+
 ## Licence
 
 Copyright (C) 2022  Matthew Hornsey
