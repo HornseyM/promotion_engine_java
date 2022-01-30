@@ -134,5 +134,38 @@ public class TestBasket {
         Basket basket = new Basket(items);
         assertEquals("Empty basket should have total for multiple items", 100, basket.getTotal());
     }
+
+    @Test
+    public void testEmptyBasketReturnsItems()
+    {
+        /**
+         * An empty basket should return no items.
+         */
+        Basket basket = new Basket();
+        assertTrue("", basket.getItems().isEmpty());
+    }
     
+    @Test
+    public void testOneItemBasketReturnsItem()
+    {
+        /**
+         * If there is one item in the basket, that should be returned.
+         */
+        Item[] itemsA = {ItemBuilder.getA()};
+        ArrayList<Item> items = new ArrayList<Item>(Arrays.asList(itemsA));
+        Basket basket = new Basket(items);
+        assertEquals("Single item, should be returned", items, basket.getItems());
+    }
+    
+    @Test
+    public void testMultiItemBasketReturnsItems()
+    {
+        /**
+         * If there are multiple items in the basket, they should be returned.
+         */
+        Item[] itemsA = {ItemBuilder.getA(), ItemBuilder.getB(), ItemBuilder.getC()};
+        ArrayList<Item> items = new ArrayList<Item>(Arrays.asList(itemsA));
+        Basket basket = new Basket(items);
+        assertEquals("Multiple items, should be returned", items, basket.getItems());
+    }
 }
