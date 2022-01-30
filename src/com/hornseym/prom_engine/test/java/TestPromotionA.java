@@ -71,7 +71,7 @@ public class TestPromotionA {
     }
 
     @Test
-    public void testBasketWithTreeAIsChanged()
+    public void testBasketWithThreeAIsChanged()
     {
         /**
          * A basket three As shoud be changed by applying Promotion A
@@ -79,7 +79,34 @@ public class TestPromotionA {
         Item[] items = {ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA()};
         Basket basket = new Basket(items);
         basket = PromotionA.apply(basket);
-        assertEquals("A basket with just three A should be undated by promotion A", 130, basket.getTotal());
+        assertEquals("A basket with three A should be undated by promotion A", 130, basket.getTotal());
+    }
+
+    @Test
+    public void testBasketWithFourAIsChanged()
+    {
+        /**
+         * A basket four As shoud be changed by applying Promotion A
+         */
+        Item[] items = {ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA()};
+        Basket basket = new Basket(items);
+        // Apply once more than needed to make sure it's applied the right number of times
+        basket = PromotionA.apply(PromotionA.apply(basket));
+        assertEquals("A basket with four As should be undated by promotion A", 180, basket.getTotal());
+    }
+
+    @Test
+    public void testBasketWithSevenAIsChanged()
+    {
+        /**
+         * A basket Seven As shoud be changed by applying Promotion A
+         */
+        Item[] items = {ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA(),
+                        ItemBuilder.getA(), ItemBuilder.getA(), ItemBuilder.getA()};
+        Basket basket = new Basket(items);
+        // Apply once more than needed to make sure it's applied the right number of times
+        basket = PromotionA.apply(PromotionA.apply(PromotionA.apply(basket)));
+        assertEquals("A basket with four As should be undated by promotion A", 310, basket.getTotal());
     }
     
 }
