@@ -29,5 +29,32 @@ public final class ItemBuilder {
     {
         return new Item("A", 50);
     }
+
+    /**
+     * Builds and return one B item
+     * @return An B item
+     */
+    public static Item getB()
+    {
+        return new Item("B", 30);
+    }
+
+    /**
+     * Builds and return one C item
+     * @return An C item
+     */
+    public static Item getC()
+    {
+        return new Item("C", 20);
+    }
+
+    /**
+     * Builds and return one D item
+     * @return An D item
+     */
+    public static Item getD()
+    {
+        return new Item("D", 15);
+    }
     
 }
